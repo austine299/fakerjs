@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fakerjs/static/css/main.91173793.css",
+    "main.js": "/fakerjs/static/js/main.30e6b3f6.js",
+    "index.html": "/fakerjs/index.html",
+    "main.91173793.css.map": "/fakerjs/static/css/main.91173793.css.map",
+    "main.30e6b3f6.js.map": "/fakerjs/static/js/main.30e6b3f6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91173793.css",
+    "static/js/main.30e6b3f6.js"
+  ]
+}

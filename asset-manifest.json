@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/fakerjs/static/css/main.91173793.css",
-    "main.js": "/fakerjs/static/js/main.6a802738.js",
+    "main.js": "/fakerjs/static/js/main.cede6708.js",
     "index.html": "/fakerjs/index.html",
     "main.91173793.css.map": "/fakerjs/static/css/main.91173793.css.map",
-    "main.6a802738.js.map": "/fakerjs/static/js/main.6a802738.js.map"
+    "main.cede6708.js.map": "/fakerjs/static/js/main.cede6708.js.map"
   },
   "entrypoints": [
     "static/css/main.91173793.css",
-    "static/js/main.6a802738.js"
+    "static/js/main.cede6708.js"
   ]
 }

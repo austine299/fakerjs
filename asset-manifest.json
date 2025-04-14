@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/fakerjs/static/css/main.8ca205dc.css",
-    "main.js": "/fakerjs/static/js/main.ba21c172.js",
+    "main.css": "/fakerjs/static/css/main.61010fbc.css",
+    "main.js": "/fakerjs/static/js/main.a0450ba5.js",
     "static/media/sunset.jpg": "/fakerjs/static/media/sunset.ab19eb6fc568e5c0ff4d.jpg",
     "index.html": "/fakerjs/index.html",
-    "main.8ca205dc.css.map": "/fakerjs/static/css/main.8ca205dc.css.map",
-    "main.ba21c172.js.map": "/fakerjs/static/js/main.ba21c172.js.map"
+    "main.61010fbc.css.map": "/fakerjs/static/css/main.61010fbc.css.map",
+    "main.a0450ba5.js.map": "/fakerjs/static/js/main.a0450ba5.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ca205dc.css",
-    "static/js/main.ba21c172.js"
+    "static/css/main.61010fbc.css",
+    "static/js/main.a0450ba5.js"
   ]
 }

@@ -1,9 +1,11 @@
 import React, {useContext} from "react";
-import {useCart } from "./CartContext"
+import {useCart } from "./CartContext";
+import { TrashIcon } from "@heroicons/react/24/solid";
 
 function Cart() {
   const {cart, incrementItem, decrementItem} = useCart();
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const {deleteitem} =useCart();
   return (
     <div className="">
       <div className="">
@@ -15,7 +17,7 @@ function Cart() {
               <li key={index} className="flex justify-between">
                 <img src={item.image} className="w-14 rounded-lg"/>
                 <span className="text-gray-600 font-bold">{item.name}</span> 
-                <div className="flex gap-2 sm:gap-5">
+                <div className="flex gap-2 sm:gap-5 border border-y-4">
                   <button onClick={() => decrementItem (item.id)} className="flex items-center justify-center bg-red-500 hover:bg-red-700 text-white font-bold text-2xl w-7 h-fit
                   ">-</button> 
                   <span className="text-gray-600 font-bold">{item.quantity}</span> 
@@ -25,6 +27,9 @@ function Cart() {
                 </div>
                 
                 <span className="text-gray-600 font-bold">${(item.price * item.quantity).toFixed(2)}</span>
+                <button onClick={() =>deleteitem(item.id)} className="hover:text-red-600 font-bold">
+                  <TrashIcon className="w-5 h-5"/>
+                </button>
               </li>
             ))}
           </ul>

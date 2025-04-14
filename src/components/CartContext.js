@@ -6,6 +6,10 @@ export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({children}) =>{
     const [cart, setCart] = useState([])
+    const [shop, setShop] = useState(false);
+    const [cartModal, setCartModal] = useState(false);
+    const [sidebar, setSidebar] = useState(false)
+    const [mobileNav, setMobileNav ] = useState(true);
 
     const AddToCart = (product) => {
         setCart((prevCart) => {
@@ -39,11 +43,25 @@ export const CartProvider = ({children}) =>{
       );
     };
 
+    const deleteitem = (id) =>{
+      setCart(prevCart => prevCart.filter(item=>item.id !== id))
+    }
+
     const value = {
         cart,
         AddToCart,
         incrementItem,
         decrementItem,
+        deleteitem,
+        shop,
+        setShop,
+        cartModal,
+        setCartModal,
+        sidebar,
+        setSidebar,
+        mobileNav, 
+        setMobileNav
+
       };
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

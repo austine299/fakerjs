@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../CartContext";
+import Sidebar from "../sidebar/Sidebar";
 import Cart from "../Cart";
 
-function Navbar({ setCartModal }) {
-  const { cart } = useCart();
+function Navbar() {
+  const { cart ,shop, setShop, setCartModal, setSidebar, sidebar, mobileNav, setMobileNav} = useCart();
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
-  const [mobileNav, setMobileNav] = useState(true);
   return (
-    <div>
+    <div >
       <div className="flex justify-between px-8 py-4">
         <h2 className=" font-bold text-2xl">Logo</h2>
         <div className="w-2/4 flex">
@@ -44,7 +44,8 @@ function Navbar({ setCartModal }) {
               ></path>
             </svg>
           </button> :
-          <button className="text-white cursor-pointer border border-gray-300 w-8 font-bold hover:text-red-500" onClick={() => setMobileNav(true)}>X</button>
+          <button className="text-white cursor-pointer border border-gray-300 w-8 font-bold hover:text-red-500" 
+            onClick={() => setMobileNav(true)}>X</button>
           }
         </div>
         {mobileNav ? (
@@ -52,16 +53,17 @@ function Navbar({ setCartModal }) {
             <ul className="flex gap-4 text-white">
               <li className="">
                 <Link
-                  to="/"
+                  to="/" 
+                  onClick={() => setShop(false) }
                   className="hover:text-yellow-500 cursor-pointer font-bold active:text-yellow-500"
                 >
                   Home
                 </Link>
               </li>
               <li className="">
-                <a className="hover:text-yellow-500 cursor-pointer font-bold">
+                <Link to="/shop" onClick={() => setShop(true)} className="hover:text-yellow-500 cursor-pointer font-bold">
                   Shop
-                </a>
+                </Link>
               </li>
               <li className="">
                 <Link
@@ -93,25 +95,35 @@ function Navbar({ setCartModal }) {
             </div>
           </div>
         ) : (
-          <div className="right-1 z-10 absolute top-10">
-            <div className="sm:hidden flex-col items-end justify-center sm:w-2/3 w-40 shadow-lg shadow-black mt-6 h-full bg-white p-4">
+          <div className="right-1 z-10 absolute top-10 w-1/2">
+            <div className="sm:hidden flex-col items-end justify-center w-full  shadow-lg shadow-black mt-6 h-full bg-white p-4">
               <ul className="flex flex-col items-start gap-4 text-black">
-                <li className="">
+                <li className="" >
                   <Link
-                    to="/"
+                    to="/" onClick={() =>{
+                      setShop(false);
+                      setMobileNav(true)
+                    }}
                     className="hover:text-yellow-500 cursor-pointer font-bold active:text-yellow-500"
                   >
                     Home
                   </Link>
                 </li>
                 <li className="">
-                  <a className="hover:text-yellow-500 cursor-pointer font-bold">
+                  <Link onClick={() =>{
+                      setShop(true);
+                      setMobileNav(true)
+                    }} className="hover:text-yellow-500 cursor-pointer font-bold">
                     Shop
-                  </a>
+                  </Link>
                 </li>
                 <li className="">
                   <Link
-                    onClick={() => setCartModal(true)}
+                    onClick={() => {
+                      setCartModal(true);
+                        setMobileNav(true)
+
+                    }}
                     className="hover:text-yellow-500 cursor-pointer font-bold"
                   >
                     Cart{" "}
@@ -131,6 +143,11 @@ function Navbar({ setCartModal }) {
                     Contact
                   </a>
                 </li>
+
+                <li className="bg-gray-100 w-full h-fit px-1">
+                <button onClick={() => setSidebar(!sidebar)} className="p-2 sm:p-5 sm:text-xl font-bold text-gray-500">ALL CATEGORIES</button>{sidebar?<Sidebar/>:<></>}
+                </li>
+
                 <hr className="mt-4 w-full font-bold text-gray-800"/>
 
                 <li className="">
@@ -149,6 +166,10 @@ function Navbar({ setCartModal }) {
           </div>
         )}
       </div>
+      {shop ?<div className="flex gap-4 ml-4 ">
+        <Link to="/" onClick={() => setShop(false)}  className="text-xl hover:underline">Home.</Link>
+        <span className="text-xl font-bold">Shop</span>
+      </div>:<></>}
     </div>
   );
 }
